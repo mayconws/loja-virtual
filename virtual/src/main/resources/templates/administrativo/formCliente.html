@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Loja Virtual</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Loja Virtual</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Painel Administrativo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>      
+        </div>    
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Procurar" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+    </form>
+  </div>
+</nav>
+
+<div class="form-group col-md-9">
+		<div class="form-row">
+<form action="adicionarCliente" th:object="${cliente}" th:action="@{/salvarCliente}" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="text" class="form-control" th:field="*{nome}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o nome">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">RG</label>
+     <input type="text" class="form-control" th:field="*{rg}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o nome">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">CPF</label>
+     <input type="text" class="form-control" th:field="*{cpf}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o nome">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Telefone</label>
+     <input type="text" class="form-control" th:field="*{telefone}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o nome">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Cidade</label>
+    <select th:field="*{cidade}" class="form-control">
+				<option value="0">Selecione uma Cidade</option>
+				<option th:each="cidade: ${cidades}"
+					th:value="${cidade.id}" th:text="${cidade.nome}"></option>
+			</select>
+			</div>    
+  
+  <button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
+	</div>
+</div>
+
+</body>
+</html>
+	
+
+
+</body>
+</html>
