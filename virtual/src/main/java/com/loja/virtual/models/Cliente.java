@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Cliente")
 public class Cliente {
 	
 private static final long serialVersionUID = 1L;	
@@ -58,8 +60,5 @@ private static final long serialVersionUID = 1L;
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}		
 	
 }

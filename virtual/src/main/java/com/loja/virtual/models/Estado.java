@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Estado")
 public class Estado {
 	
 private static final long serialVersionUID = 1L;	
@@ -34,9 +36,6 @@ private static final long serialVersionUID = 1L;
 	}
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 	
 	@Override
