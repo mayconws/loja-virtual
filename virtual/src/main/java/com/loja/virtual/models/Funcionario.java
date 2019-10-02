@@ -8,8 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Cliente")
-public class Cliente {
+@Table(name="Funcionario")
+public class Funcionario {
 	
 private static final long serialVersionUID = 1L;	
 	
@@ -20,10 +20,10 @@ private static final long serialVersionUID = 1L;
 	private String nome;
 	private String rg;
 	private String cpf;
+	private String endereco;
 	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
-	
 	public long getId() {
 		return id;
 	}
@@ -48,6 +48,12 @@ private static final long serialVersionUID = 1L;
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 	public String getTelefone() {
 		return telefone;
 	}
@@ -59,6 +65,6 @@ private static final long serialVersionUID = 1L;
 	}
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
-	}
+	}	
 	
 }
