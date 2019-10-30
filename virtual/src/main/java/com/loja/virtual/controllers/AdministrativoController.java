@@ -8,7 +8,7 @@ public class AdministrativoController {
 	
 	@GetMapping("/adm")
 	public String AdmController() {
-		return "administrativo/home";
+		return "administrativo/indexAdm";
 	}
 
 }
