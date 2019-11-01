@@ -59,8 +59,8 @@ public class EstadoController {
 	@GetMapping("/editarEstado/{id}")
 	public ModelAndView edit(@PathVariable("id") long id) {
 		
-		Optional<Estado> estados = estadoRepository.findById(id);
-		Estado e = estados.get();
+		Optional<Estado> estado = estadoRepository.findById(id);
+		Estado e = estado.get();
 		
 		return add(e);
 	}
@@ -68,8 +68,8 @@ public class EstadoController {
 
 	@GetMapping("/removerEstado/{id}")
 	public ModelAndView delete(@PathVariable("id") long id) {
-		Optional<Estado> estados = estadoRepository.findById(id);
-		Estado e = estados.get();
+		Optional<Estado> estado = estadoRepository.findById(id);
+		Estado e = estado.get();
 		estadoRepository.delete(e);	
 		
 		return lista();

@@ -1,5 +1,7 @@
 package com.loja.virtual.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,10 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Funcionario")
-public class Funcionario {
+@Table(name="funcionario")
+public class Funcionario implements Serializable {
 	
-private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)	
@@ -19,11 +21,12 @@ private static final long serialVersionUID = 1L;
 	private long id;
 	private String nome;
 	private String rg;
-	private String cpf;
-	private String endereco;
+	private String cpf;	
 	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
+	private String email;
+	private String senha;
 	
 	public long getId() {
 		return id;
@@ -48,13 +51,7 @@ private static final long serialVersionUID = 1L;
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+	}	
 	public String getTelefone() {
 		return telefone;
 	}
@@ -66,6 +63,18 @@ private static final long serialVersionUID = 1L;
 	}
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}	
 	
 }

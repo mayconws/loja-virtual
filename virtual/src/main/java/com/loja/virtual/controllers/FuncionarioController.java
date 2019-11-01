@@ -72,8 +72,8 @@ public class FuncionarioController {
 	@GetMapping("/removerFuncionario/{id}")
 	public ModelAndView delete(@PathVariable("id") long id) {
 		
-		Optional<Funcionario> funcionarios = funcionarioRepository.findById(id);
-		Funcionario f = funcionarios.get();
+		Optional<Funcionario> funcionario = funcionarioRepository.findById(id);
+		Funcionario f = funcionario.get();
 		funcionarioRepository.delete(f);	
 		
 		return lista();

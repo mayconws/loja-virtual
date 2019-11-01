@@ -35,7 +35,7 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
@@ -135,8 +135,19 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarPapeis">Cadastar</a>   
-          <a class="dropdown-item" href="listarPapeis">Listar</a>          
+          <a class="dropdown-item" href="adicionarPapel">Cadastar</a>   
+          <a class="dropdown-item" href="listarPapel">Listar</a>          
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Permissões</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Opções:</h6>
+          <a class="dropdown-item" href="adicionarPermissaoFuncionario">Cadastar</a>   
+          <a class="dropdown-item" href="listarPermissaoFuncionario">Listar</a>          
         </div>
       </li>
     </ul>
@@ -173,12 +184,7 @@
     <label for="exampleFormControlInput1">CPF</label>
      <input type="text" class="form-control" th:field="*{cpf}" id="" aria-describedby="emailHelp" placeholder="Digite o CPF">
     <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlInput1">Endereço</label>
-     <input type="text" class="form-control" th:field="*{endereco}" id="" aria-describedby="emailHelp" placeholder="Digite o Endereço">
-    <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
+  </div>   
   <div class="form-group">
     <label for="exampleFormControlInput1">Telefone</label>
      <input type="text" class="form-control" th:field="*{telefone}" id="e" aria-describedby="emailHelp" placeholder="Digite o telefone">
@@ -191,7 +197,17 @@
 				<option th:each="cidade: ${cidades}"
 					th:value="${cidade.id}" th:text="${cidade.nome}"></option>
 			</select>
-			</div>    
+			</div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" th:field="*{email}" id="" aria-describedby="emailHelp" placeholder="Digite o email">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Senha</label>
+    <input type="password" class="form-control" th:field="*{senha}" id="" aria-describedby="emailHelp" placeholder="Digite a Senha">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>   
   
   		<button type="submit" class="btn btn-primary">Salvar</button>
   		<button type="submit" class="btn btn-secondary"><a href="adm" class="text-white">Voltar</button><a></a>

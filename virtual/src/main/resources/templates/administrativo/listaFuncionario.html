@@ -135,8 +135,19 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarPapeis">Cadastar</a>   
-          <a class="dropdown-item" href="listarPapeis">Listar</a>          
+          <a class="dropdown-item" href="adicionarPapel">Cadastar</a>   
+          <a class="dropdown-item" href="listarPapel">Listar</a>          
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Permissões</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Opções:</h6>
+          <a class="dropdown-item" href="adicionarPermissaoFuncionario">Cadastar</a>   
+          <a class="dropdown-item" href="listarPermissaoFuncionario">Listar</a>          
         </div>
       </li>
     </ul>
@@ -166,9 +177,11 @@
                       <th class="coluna2">RG</th>
                       <th class="coluna3">CPF</th>
                       <th class="coluna4">Telefone</th> 
-                      <th class="coluna4">Cidade</th>                     
-                      <th class="coluna5"></th>
-                      <th class="coluna6"></th>
+                      <th class="coluna5">Cidade</th>
+                      <th class="coluna6">Email</th>
+                      <th class="coluna7">Senha</th>                                
+                      <th class="coluna8"></th>
+                      <th class="coluna9"></th>
                       
                     </tr>
                   </thead>
@@ -180,8 +193,10 @@
                       <td class="coluna3" th:text="${funcionario.cpf}"></td>
                       <td class="coluna4" th:text="${funcionario.telefone}"></td>                     
                       <td class="coluna5" th:text="${funcionario.cidade}"></td>
-                      <td><a th:href="@{/editarfuncionario/{id}(id=${funcionario.id})}" ><button type="button" class="btn btn-primary btn-sm">Alterar</button></a></td>
-		  			  <td><a th:href="@{/removerfuncionario/{id}(id=${funcionario.id})}" ><button type="button" class="btn btn-danger btn-sm">Excluir</button></a></td>
+                      <td class="coluna5" th:text="${funcionario.email}"></td>
+                       <td class="coluna5" th:text="${funcionario.senha}"></td>
+                      <td><a th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}" ><button type="button" class="btn btn-primary btn-sm">Alterar</button></a></td>
+		  			  <td><a th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}" ><button type="button" class="btn btn-danger btn-sm">Excluir</button></a></td>
                     </tr>
                   </tbody>
                 </table>
