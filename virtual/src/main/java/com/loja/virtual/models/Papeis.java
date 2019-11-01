@@ -16,14 +16,20 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy=GenerationType.AUTO)	
 	
 	private long id;
-	private String departamento;
 	private String funcao;
+	private String departamento;	
 	
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
+	}	
+	public String getFuncao() {
+		return funcao;
+	}
+	public void setFuncao(String funcao) {
+		this.funcao = funcao;
 	}
 	public String getDepartamento() {
 		return departamento;
@@ -31,11 +37,5 @@ private static final long serialVersionUID = 1L;
 	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
-	public String getFuncao() {
-		return funcao;
-	}
-	public void setFuncao(String funcao) {
-		this.funcao = funcao;
-	}	
 
 }

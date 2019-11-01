@@ -52,7 +52,7 @@ public class FuncionarioController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/consultaFuncionario")
+	@RequestMapping(value = "/listarFuncionario")
 	public ModelAndView lista() {
 		ModelAndView mv = new ModelAndView("/administrativo/ListaFuncionario");
 		List<Funcionario> funcionario = funcionarioRepository.findAll();

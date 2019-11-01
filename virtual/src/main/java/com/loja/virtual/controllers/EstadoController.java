@@ -41,7 +41,7 @@ public class EstadoController {
 	
 	@PostMapping(value = "/pesquisarEstado")		
 	public ModelAndView buscar(@RequestParam ("buscar") String buscar) {
-		ModelAndView mv = new ModelAndView("/administrativo/ListaEstado");
+		ModelAndView mv = new ModelAndView("/administrativo/listaEstado");
 		mv.addObject("estado", estadoRepository.FindEstadoByname(buscar));
 		
 		return mv;			
@@ -50,7 +50,7 @@ public class EstadoController {
 	
 	@RequestMapping(value = "/listaEstados")
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("/administrativo/ListaEstado");
+		ModelAndView mv = new ModelAndView("/administrativo/listaEstado");
 		List<Estado> estado = estadoRepository.findAll();
 		mv.addObject("estado", estado);
 		return mv;

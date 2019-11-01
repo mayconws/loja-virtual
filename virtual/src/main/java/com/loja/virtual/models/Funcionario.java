@@ -24,6 +24,7 @@ private static final long serialVersionUID = 1L;
 	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
+	
 	public long getId() {
 		return id;
 	}

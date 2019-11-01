@@ -46,7 +46,7 @@ public class CidadeController {
 	
 	@PostMapping(value = "/pesquisarCidade")		
 	public ModelAndView buscar(@RequestParam ("buscar") String buscar) {
-		ModelAndView mv = new ModelAndView("/administrativo/ListaCidade");
+		ModelAndView mv = new ModelAndView("/administrativo/listaCidade");
 		mv.addObject("cidade", cidadeRepository.FindCidadeByname(buscar));
 		
 		return mv;			
@@ -55,7 +55,7 @@ public class CidadeController {
 	
 	@RequestMapping(value = "/consultaCidade")
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("/administrativo/ListaCidade");
+		ModelAndView mv = new ModelAndView("/administrativo/listaCidade");
 		List<Cidade> cidade = cidadeRepository.findAll();
 		mv.addObject("cidade", cidade);
 		return mv;
