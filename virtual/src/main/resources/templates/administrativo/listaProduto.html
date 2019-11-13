@@ -33,11 +33,11 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="pesquisarProduto" method="post">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
+        <input name="buscar" type="text" class="form-control" placeholder="Pesquisar" aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
+          <button class="btn btn-primary" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -124,8 +124,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarFuncionario">Cadastar</a>   
-          <a class="dropdown-item" href="listarFuncionario">Listar</a>          
+          <a class="dropdown-item" href="adicionarProduto">Cadastar</a>   
+          <a class="dropdown-item" href="listarProduto">Listar</a>          
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -139,18 +139,18 @@
           <a class="dropdown-item" href="listarPapel">Listar</a>          
         </div>
       </li>
-       <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Permissões</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarPermissaoFuncionario">Cadastar</a>   
-          <a class="dropdown-item" href="listarPermissaoFuncionario">Listar</a>          
+          <a class="dropdown-item" href="adicionarPermissaoProduto">Cadastar</a>   
+          <a class="dropdown-item" href="listarPermissaoProduto">Listar</a>          
         </div>
       </li>
-       <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Produto</span>
@@ -170,89 +170,47 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="">Dashboard</a>
+            <a href="index.html">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Loja Virtual</li>
         </ol>
 
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-comments"></i>
-                </div>
-                <div class="mr-5">26 New Messages!</div>
+        <!-- Page Content -->
+        <h2 align="center">Lista de Produtos</h2>
+        
+        <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th class="0coluna">ID</th>
+                      <th class="coluna1">Descrição</th>
+                      <th class="coluna2">valor de Venda</th>
+                      <th class="coluna3">Categoria</th>
+                      <th class="coluna4">Marca</th> 
+                      <th class="coluna5">Quantidade de Estoque</th>
+                      <th class="coluna6"> Nome Imagem</th>                                                
+                      <th class="coluna7"></th>
+                      <th class="coluna8"></th>                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="produto : ${produto}" >
+                      <td class="coluna0" th:text="${produto.id}"></td>
+                      <td class="coluna1" th:text="${produto.descricao}"></td>
+                      <td class="coluna2" th:text="${produto.valorVenda}"></td>
+                      <td class="coluna3" th:text="${produto.categoria}"></td>
+                      <td class="coluna4" th:text="${produto.marca}"></td>                     
+                      <td class="coluna5" th:text="${produto.quantidadeEstoque}"></td>
+                      <td class="coluna5" th:text="${produto.nomeImagem}"></td>                      
+                      <td><a th:href="@{/editarProduto/{id}(id=${produto.id})}" ><button type="button" class="btn btn-primary btn-sm">Alterar</button></a></td>
+		  			  <td><a th:href="@{/removerProduto/{id}(id=${produto.id})}" ><button type="button" class="btn btn-danger btn-sm">Excluir</button></a></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
             </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5">11 New Tasks!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">123 New Orders!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
-                </div>
-                <div class="mr-5">13 New Tickets!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Area Chart Example-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Gráficos</div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div>        
-        </div>        
-      </div>
+      	
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -273,8 +231,8 @@
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a> 
-
+  </a>
+ 
   <!-- Bootstrap core JavaScript-->
   <script src="adm/vendor/jquery/jquery.min.js"></script>
   <script src="adm/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -282,17 +240,8 @@
   <!-- Core plugin JavaScript-->
   <script src="adm/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Page level plugin JavaScript-->
-  <script src="adm/vendor/chart.js/Chart.min.js"></script>
-  <script src="adm/vendor/datatables/jquery.dataTables.js"></script>
-  <script src="adm/vendor/datatables/dataTables.bootstrap4.js"></script>
-
   <!-- Custom scripts for all pages-->
   <script src="adm/js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="adm/js/demo/datatables-demo.js"></script>
-  <script src="adm/js/demo/chart-area-demo.js"></script>
 
 </body>
 

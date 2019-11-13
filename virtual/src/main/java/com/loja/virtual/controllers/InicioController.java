@@ -8,7 +8,7 @@ public class InicioController {
 	
 	@GetMapping("/inicio")
 	public String homeAdm() {
-		return "index";
+		return "loja/index";
 	}
 
 }
