@@ -185,7 +185,8 @@
 				<option th:each="papel: ${papel}"
 					th:value="${papel.id}" th:text="${papel.nome}"></option>
 			</select>
-			</div>      
+			</div>
+  <input type="hidden" id="id" th:field="*{id}" readOnly="readonly" value=""><input>		      
   <button type="submit" class="btn btn-primary">Salvar</button>
   <button type="submit" class="btn btn-secondary"><a href="adm" class="text-white">Voltar</button><a></a>
 	</form>

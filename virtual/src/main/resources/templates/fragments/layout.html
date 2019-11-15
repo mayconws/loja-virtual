@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 
@@ -139,7 +141,7 @@
           <a class="dropdown-item" href="listarPapel">Listar</a>          
         </div>
       </li>
-       <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Permissões</span>
@@ -165,26 +167,12 @@
         </ol>
 
         <!-- Page Content -->
-        <h2 align="center">Cadastro de Papeis</h2><br>  
+        <section class="layout-content" layout:fragment="corpo">
+        	        
+        	
+        	
+        </section>
        	
-  <div class="col-md-4 offset-md-4">
-	<div class="form-group" align="justify">
-	<form action="adicionarPapel" th:object="${papel}" th:action="@{/salvarPapel}" method="post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Nome</label>
-    <input type="text" class="form-control" th:field="*{nome}" id="" aria-describedby="emailHelp" placeholder="Digite o Nome">
-    <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Departamento</label>
-    <input type="text" class="form-control" th:field="*{departamento}" id="" placeholder="Digite o Departamnto">
-  </div>
-  <input type="hidden" id="id" th:field="*{id}" readOnly="readonly" value=""><input>
-  <button type="submit" class="btn btn-primary">Salvar</button>
-  <button type="submit" class="btn btn-secondary"><a href="adm" class="text-white">Voltar</button><a></a>
-	</form>
-</div>
-</div>
        	
 
       </div>

@@ -64,7 +64,7 @@ public class FuncionarioController {
 	public ModelAndView edit(@PathVariable("id") long id) {
 		
 		Optional<Funcionario> funcionario = funcionarioRepository.findById(id);
-		Funcionario f = funcionario.get();	
+		Funcionario f = funcionario.get();
 		
 		return add(f);
 	}
