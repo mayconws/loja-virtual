@@ -34,13 +34,8 @@
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+      <div class="input-group">       
+        
       </div>
     </form>
 
@@ -64,10 +59,10 @@
           <span class="badge badge-danger"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Acão</a>
+          <a class="dropdown-item" href="#">Outras Ações</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Nenhuma Informação</a>
         </div>
       </li>
       <li class="nav-item dropdown no-arrow">
@@ -125,7 +120,7 @@
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções:</h6>
           <a class="dropdown-item" href="adicionarFuncionario">Cadastar</a>   
-          <a class="dropdown-item" href="listarFuncionario">Listar</a>           
+          <a class="dropdown-item" href="listarFuncionario">Listar</a>          
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -139,7 +134,7 @@
           <a class="dropdown-item" href="listarPapel">Listar</a>          
         </div>
       </li>
-      <li class="nav-item dropdown">
+       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Permissões</span>
@@ -150,45 +145,37 @@
           <a class="dropdown-item" href="listarPermissaoFuncionario">Listar</a>          
         </div>
       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Produto</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Opções:</h6>
+          <a class="dropdown-item" href="adicionarProduto">Cadastar</a>   
+          <a class="dropdown-item" href="listarProduto">Listar</a>          
+        </div>
+      </li>
     </ul>
 
     <div id="content-wrapper">
 
       <div class="container-fluid">
 
-        <!-- Breadcrumbs-->
+        <!-- Bread crumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">Dashboard</a>
+            <a href="">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Loja Virtual</li>
         </ol>
 
-        <!-- Page Content -->
-        <h2 align="center">Cadastro de Estado</h2><br>  
-       	
-  <div class="col-md-4 offset-md-4">
-	<div class="form-group" align="justify">
-	<form action="adicionarEstado" th:object="${estado}" th:action="@{/salvarEstado}" method="post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Nome</label>
-    <input type="text" class="form-control" th:field="*{nome}" id="" aria-describedby="emailHelp" placeholder="Digite o nome">
-    <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Sigla</label>
-    <input type="text" class="form-control" th:field="*{sigla}" id="" placeholder="Digite a Sigla">
-  </div>  
-  <input type="hidden" id="id" th:field="*{id}" readOnly="readonly" value=""><input>
-  <button type="submit" class="btn btn-primary">Salvar</button>
-  <button type="submit" class="btn btn-secondary"><a href="adm" class="text-white">Voltar</button><a></a>
-	</form>
-</div>
-</div>
-       	
-
-      </div>
-      <!-- /.container-fluid -->
+        <!-- Icon Cards-->
+        <section class="layout-content" layout:fragment="corpo">
+        	    
+       	       	
+        </section>
+      	<!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
@@ -208,8 +195,8 @@
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a>
- 
+  </a> 
+
   <!-- Bootstrap core JavaScript-->
   <script src="adm/vendor/jquery/jquery.min.js"></script>
   <script src="adm/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -217,8 +204,17 @@
   <!-- Core plugin JavaScript-->
   <script src="adm/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+  <!-- Page level plugin JavaScript-->
+  <script src="adm/vendor/chart.js/Chart.min.js"></script>
+  <script src="adm/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="adm/vendor/datatables/dataTables.bootstrap4.js"></script>
+
   <!-- Custom scripts for all pages-->
   <script src="adm/js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="adm/js/demo/datatables-demo.js"></script>
+  <script src="adm/js/demo/chart-area-demo.js"></script>
 
 </body>
 

@@ -1,229 +1,47 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}">
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Loja - Administrativo</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="adm/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-  <!-- Page level plugin CSS-->
-  <link href="adm/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="adm/css/sb-admin.css" rel="stylesheet">
-
+	<meta charset="utf-8">
+    <title>Cadastro de Cidade</title>
 </head>
-
-<body id="page-top">
-
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-    <a class="navbar-brand mr-1" href="adm">Painel Administrativo</a>
-
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Mensagens</a>
-          <a class="dropdown-item" href="#"></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#"></a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Configurações</a>
-          <a class="dropdown-item" href="#">Registro de Atividades</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
-        </div>
-      </li>
-    </ul>
-
-  </nav>
-
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Estado</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarEstado">Cadastar</a>   
-          <a class="dropdown-item" href="listaEstados">Listar</a>          
-        </div>
-      </li>
-     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Cidade</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarCidade">Cadastar</a>   
-          <a class="dropdown-item" href="consultaCidade">Listar</a>          
-        </div>
-      </li>
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Funcionário</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarFuncionario">Cadastar</a>   
-          <a class="dropdown-item" href="listarFuncionario">Listar</a>           
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Papeis</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarPapel">Cadastar</a>   
-          <a class="dropdown-item" href="listarPapel">Listar</a>          
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Permissões</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Opções:</h6>
-          <a class="dropdown-item" href="adicionarPermissaoFuncionario">Cadastar</a>   
-          <a class="dropdown-item" href="listarPermissaoFuncionario">Listar</a>          
-        </div>
-      </li>
-    </ul>
-
-    <div id="content-wrapper">
-
-      <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="index.html">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Loja Virtual</li>
-        </ol>
+<body>		
 
         <!-- Page Content -->
-        <h2 align="center">Cadastro de Cidade</h2><br>    
-       	
-  <div class="col-md-4 offset-md-4">
-	<div class="form-group" align="justify">
-	<form action="adicionarCidade" th:object="${cidade}" th:action="@{/salvarCidade}" method="post">
-  		<div class="form-group">
-    <label for="exampleInputEmail1">Nome</label>
-    <input type="text" class="form-control" th:field="*{nome}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o nome">
-    <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Estado</label>   
-			<select th:field="*{estado}" class="form-control">
-				<option value="0">Selecione um Estado</option>
-				<option th:each="estado: ${estados}"
-					th:value="${estado.id}" th:text="${estado.nome}"></option>
-			</select>
-			</div>			
-  			<input type="hidden" id="id" th:field="*{id}" readOnly="readonly" value=""><input>
-  			<button type="submit" class="btn btn-primary">Salvar</button>
-  			<button type="submit" class="btn btn-secondary"><a href="adm" class="text-white">Voltar</button><a></a>
-		</form>
-	</div>
-</div>
-       	
+        <section class="layout-content" layout:fragment="corpo">
 
-      </div>
-      <!-- /.container-fluid -->
+			<h2 align="center">Cadastro de Cidade</h2><br>
 
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Loja Virtual 2019</span>
-          </div>
-        </div>
-      </footer>
+		<div class="col-md-4 offset-md-4">
+			<div class="form-group" align="justify">
+				<form action="adicionarCidade" th:object="${cidade}"
+					th:action="@{/salvarCidade}" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Nome</label> <input type="text"
+							class="form-control" th:field="*{nome}" id="exampleInputEmail1"
+							aria-describedby="emailHelp" placeholder="Digite o nome">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Estado</label> <select
+							th:field="*{estado}" class="form-control">
+							<option value="0">Selecione um Estado</option>
+							<option th:each="estado: ${estados}" th:value="${estado.id}"
+								th:text="${estado.nome}"></option>
+						</select>
+					</div>
+					<input type="hidden" id="id" th:field="*{id}" readOnly="readonly"
+						value=""></input>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="submit" class="btn btn-secondary">
+						<a href="adm" class="text-white">Voltar
+					</button>
+					<a></a>
+				</form>
+			</div>
+		</div>
 
-    </div>
-    <!-- /.content-wrapper -->
-
-  </div>
-  <!-- /#wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
- 
-  <!-- Bootstrap core JavaScript-->
-  <script src="adm/vendor/jquery/jquery.min.js"></script>
-  <script src="adm/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="adm/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="adm/js/sb-admin.min.js"></script>
-
+	</section>        	
+  
 </body>
-
 </html>
