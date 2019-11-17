@@ -15,7 +15,7 @@
 
 		<div class="col-md-6 offset-md-3">
 			<div class="form-group" align="justify">
-				<form action="adicionarProduto" th:object="${produto}"
+				<form action="adicionarProduto" enctype="multipart/form-data" th:object="${produto}"
 					th:action="@{/salvarProduto}" method="post">
 					<div class="form-group">
 						<label for="exampleFormControlInput1">Descrição</label> <input
@@ -42,17 +42,7 @@
 							id="emailHelp" class="form-text text-muted"></small>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputControlInput1">Quantidade Estoque</label>
-						<input type="number" class="form-control"
-							th:field="*{quantidadeEstoque}" id="" aria-describedby=""
-							placeholder="Digite a quantidade"> <small id="emailHelp"
-							class="form-text text-muted"></small>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nome da Imagem</label> <input type="text"
-							class="form-control" th:field="*{nomeImagem}" id=""
-							aria-describedby="" placeholder="Digite o nome da imagem"> <small
-							id="emailHelp" class="form-text text-muted"></small>
+						<input type="file" name="file"></input>
 					</div>
 					<input type="hidden" id="id" th:field="*{id}" readOnly="readonly"
 						value=""></input>

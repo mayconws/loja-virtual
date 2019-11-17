@@ -41,7 +41,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 		.usersByUsernameQuery(
 				"select email as username, senha as password, 1 as enable from funcionario where email=?")
 		.authoritiesByUsernameQuery(
-				"select funcionario.email as username, papel.nome as authority from permissoes_funcionario inner join funcionario on funcionario.id=permissoes_funcionario.funcionario_id inner join papel on permissoes_funcionario.papel_id=papel.id where funcionario.email=?")
+				"select funcionario.email as username, papel.nome as authority from permissoes inner join funcionario on funcionario.id=permissoes.funcionario_id inner join papel on permissoes.papel_id=papel.id where funcionario.email=?")
 		.passwordEncoder(new BCryptPasswordEncoder());
 
 }

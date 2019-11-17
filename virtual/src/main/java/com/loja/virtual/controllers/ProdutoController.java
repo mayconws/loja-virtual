@@ -1,5 +1,10 @@
 package com.loja.virtual.controllers;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.loja.virtual.models.Produto;
@@ -21,22 +28,57 @@ import com.loja.virtual.repository.ProdutoRepository;
 @Controller
 public class ProdutoController {
 	
+	private static String caminhoImagens = "C:\\Users\\Julio\\Downloads\\imagens";
+	
 	@Autowired
 	private ProdutoRepository produtoRepository;	
 	
 	@GetMapping("/adicionarProduto")
-	public ModelAndView add(Produto funcionario) {
+	public ModelAndView add(Produto produto) {
 		ModelAndView mv = new ModelAndView("/administrativo/formProduto");
-		mv.addObject("funcionario", funcionario);		
+		mv.addObject("produto", produto);		
 		
 		return mv;
 	}
 	
 	@PostMapping("/salvarProduto")
-	public ModelAndView salvar(@Valid Produto funcionario, BindingResult result) {
-		produtoRepository.saveAndFlush(funcionario);
+	public ModelAndView salvar(@Valid Produto produto, BindingResult result,
+			@RequestParam("file") MultipartFile arquivo) {
+
+		if (result.hasErrors()) {
+			return add(produto);
+		}
+
+		produtoRepository.saveAndFlush(produto);
+
+		try {
+			if (!arquivo.isEmpty()) {
+				byte[] bytes = arquivo.getBytes();
+				Path caminho = Paths
+						.get(caminhoImagens + String.valueOf(produto.getId()) + arquivo.getOriginalFilename());
+				Files.write(caminho, bytes);
+
+				produto.setNomeImagem(String.valueOf(produto.getId()) + arquivo.getOriginalFilename());
+				produtoRepository.saveAndFlush(produto);
+				
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		return lista();
 		
+	}
+	
+	@GetMapping("/administrativo/mostrarImagem/{imagem}")
+	@ResponseBody
+	public byte[] retornarImagem(@PathVariable("imagem") String imagem) throws IOException {
+
+		File imagemArquivo = new File(caminhoImagens + imagem);
+		if (imagem != null || imagem.trim().length() > 0) {			
+			return Files.readAllBytes(imagemArquivo.toPath());
+		}
+		return null;
 	}
 	
 	@PostMapping(value = "/pesquisarProduto")		
@@ -55,11 +97,11 @@ public class ProdutoController {
 		return mv;
 	}
 	
-	@GetMapping("/editarProduto/{id}")
+	@GetMapping("/editarProduto/{id}")	
 	public ModelAndView edit(@PathVariable("id") long id) {
 		
-		Optional<Produto> funcionario = produtoRepository.findById(id);
-		Produto p = funcionario.get();	
+		Optional<Produto> produto = produtoRepository.findById(id);
+		Produto p = produto.get();	
 		
 		return add(p);
 	}

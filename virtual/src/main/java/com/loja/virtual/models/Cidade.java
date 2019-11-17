@@ -21,13 +21,15 @@ public class Cidade implements Serializable{
 	private long id;
 	private String nome;
 	@ManyToOne
-	private Estado estado;
+	private Estado estado;	
+	
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -40,6 +42,7 @@ public class Cidade implements Serializable{
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
+	
 	@Override
 	public String toString() {
 		return nome;
