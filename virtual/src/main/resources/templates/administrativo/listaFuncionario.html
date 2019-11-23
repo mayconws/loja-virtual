@@ -24,8 +24,7 @@
 							<th class="coluna3">CPF</th>
 							<th class="coluna4">Telefone</th>
 							<th class="coluna5">Cidade</th>
-							<th class="coluna6">Email</th>
-							<th class="coluna7">Senha</th>
+							<th class="coluna6">Email</th>							
 							<th class="coluna8"></th>
 							<th class="coluna9"></th>
 
@@ -39,8 +38,7 @@
 							<td class="coluna3" th:text="${funcionario.cpf}"></td>
 							<td class="coluna4" th:text="${funcionario.telefone}"></td>
 							<td class="coluna5" th:text="${funcionario.cidade}"></td>
-							<td class="coluna5" th:text="${funcionario.email}"></td>
-							<td class="coluna5" th:text="${funcionario.senha}"></td>
+							<td class="coluna5" th:text="${funcionario.email}"></td>							
 							<td><a
 								th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}"><button
 										type="button" class="btn btn-primary btn-sm">Alterar</button></a></td>

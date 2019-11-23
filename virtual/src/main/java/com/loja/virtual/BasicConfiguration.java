@@ -48,7 +48,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/adicionarEstado/**").hasAnyAuthority("Gerente").
+		http.csrf().disable().authorizeRequests().antMatchers("//**").hasAnyAuthority("Gerente", "Vendedor").
 		antMatchers("//**").hasAnyAuthority("Gerente").and().formLogin()
 				.loginPage("/login").permitAll().and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").and()

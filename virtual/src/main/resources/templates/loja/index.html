@@ -53,9 +53,9 @@
 							</div>
 						</div>
 						<div class="add-to-cart">
-							<button class="add-to-cart-btn">
+							<a class="btn btn-danger" th:href="@{/adicionarCarrinho/{id}(id=${produto.id})}">
 								<i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>

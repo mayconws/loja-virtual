@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layoutLoja}">
+<head>
+
+	<meta charset="utf-8">
+    <title>Loja Virtual</title>
+</head>
+<body>		
+
+        <!-- Page Content -->
+	<section class="layout-content" layout:fragment="inicio">	
+
+		<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th class="text-center">Preço</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+							<tr th:each="item: ${listaItens}">
+								<td class="col-sm-8 col-md-6">
+									<div class="media">
+										<a class="thumbnail pull-left" href="#"> <img
+											class="media-object"
+											src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+											style="width: 72px; height: 72px;">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">
+												<span th:text="${item.produto.descricao}"></span>
+											</h4>											
+											<span>Status: </span><span class="text-success"><strong>
+													Em Estoque: </strong></span>
+												<span th:text="${item.quantidade}"></span>
+										</div>
+									</div>
+								</td>
+								<td class="col-sm-1 col-md-1" style="text-align: center">
+									<button type="button" class="btn btn-success">
+										<span class="fa fa-plus"></span>
+									</button>
+									<button type="button" class="btn btn-danger">
+										<span class="fa fa-minus"></span>
+									</button>
+								</td>
+								<td class="col-sm-1 col-md-1 text-center" th:text="${item.valorTotal}"><strong>$4.87</strong></td>
+								<td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+								<td class="col-sm-1 col-md-1">
+									<button type="button" class="btn btn-danger">
+										<span class="glyphicon glyphicon-remove"></span> Remover
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td> </td>
+								<td> </td>
+								<td> </td>
+								<td><h5>Subtotal</h5></td>
+								<td class="text-right"><h5>
+										<strong>$24.59</strong>
+									</h5></td>
+							</tr>
+							<tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Frete</h5></td>
+                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Comprando
+                        </button></td>
+                        <td>
+                        <button type="button" class="btn btn-success">
+                            Finalizar <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+			
+	</section>
+
+</body>
+</html>

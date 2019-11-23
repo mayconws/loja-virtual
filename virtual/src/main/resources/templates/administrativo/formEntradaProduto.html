@@ -57,13 +57,15 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1">Valor de Custo</label> <input
 								type="text" class="form-control" th:field="*{valorProduto}"
-								id="" aria-describedby="emailHelp" placeholder="Digite o valor">
+								id="valorVenda" data-mask="#.###,00" data-mask-reverse="true"
+								aria-describedby="emailHelp" placeholder="Digite o valor">
 							<small id="emailHelp" class="form-text text-muted"></small>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Valor de Venda</label> <input
 								type="text" class="form-control" th:field="*{valorVenda}"
-								id="" data-mask="" aria-describedby="emailHelp" placeholder="Digite o valor">
+								id="valorVenda" data-mask="#.###,00" data-mask-reverse="true"
+								aria-describedby="emailHelp" placeholder="Digite o valor">
 							<small id="emailHelp" class="form-text text-muted"></small>
 						</div>
 					</div>
