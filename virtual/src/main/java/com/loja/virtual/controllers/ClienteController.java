@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.loja.virtual.models.Cliente;
 import com.loja.virtual.repository.CidadeRepository;
 import com.loja.virtual.repository.ClienteRepository;
 
+@Controller
 public class ClienteController {
 	
 	@Autowired
@@ -26,7 +28,7 @@ public class ClienteController {
 	
 	@GetMapping("/adicionarCliente")
 	public ModelAndView add(Cliente cliente) {
-		ModelAndView mv = new ModelAndView("/cliente/cadastrar");
+		ModelAndView mv = new ModelAndView("/cliente/cadastrarCliente");
 		mv.addObject("cliente", cliente);
 		mv.addObject("cidade", cidadeRepository.findAll());
 		

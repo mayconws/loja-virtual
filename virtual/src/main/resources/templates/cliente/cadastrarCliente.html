@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{cliente/fragments/layoutLoja}">
+
+<head>
+
+<title>Cadastro</title>
+
+</head>
+
+<body>
+
+	<!-- Page Content -->
+	<section class="container" layout:fragment="inicio">
+
+		<div class="row">
+			<aside class="col-sm-6">
+				<br>
+
+				<div class="card">
+					<article class="card-body">
+
+						<h2 class="card-title mb-4 mt-1">Cadastrar-se na loja</h2>
+						<form action="adicionarCliente" th:object="${cliente}"
+							th:action="@{/salvarCliente}" method="post">
+							<div class="form-group">
+								<label>Nome</label> <input name="" class="form-control"
+									placeholder="Nome" type="text" th:field="*{nome}">
+							</div>
+							<!-- form-group// -->
+							<div class="form-group">
+								<label>CPF</label> <input name="" class="form-control"
+									placeholder="CPF" type="text" th:field="*{cpf}">
+							</div>
+							<!-- form-group// -->
+							<div class="form-group">
+								<label for="exampleFormControlInput1">Cidade</label> <select
+									th:field="*{cidade}" class="form-control">
+									<option value="0">Selecione uma Cidade</option>
+									<option th:each="cidade: ${cidade}" th:value="${cidade.id}"
+										th:text="${cidade.nome}"></option>
+								</select>
+							</div>
+							<!-- form-group// -->
+							<div class="form-group">
+								<label>E-mail</label> <input name="" class="form-control"
+									placeholder="" type="email" th:field="*{email}">
+							</div>
+							<!-- form-group// -->
+							<div class="form-group">
+								<label>Senha</label> <input name="" class="form-control"
+									placeholder="" type="password" th:field="*{senha}">
+							</div>
+							<!-- form-group// -->
+							<div class="form-group">
+								<button type="submit" class="btn btn-danger btn-block">
+									Cadastar</button>
+							</div>
+							<!-- form-group// -->
+						</form>
+					</article>
+				</div>
+				<!-- card.// -->
+
+			</aside>
+			<!-- col.// -->
+			<aside class="col-sm-6">
+				<br>
+
+				<div class="card">
+					<article class="card-body">
+
+						<h2 class="card-title mb-4 mt-1">Login</h2>
+
+						<hr>
+						<form th:action="@{/salvarCliente}" method="post">
+							<div class="form-group">
+								<input name="" class="form-control" placeholder="Email"
+									type="email">
+							</div>
+							<!-- form-group// -->
+							<div class="form-group">
+								<input class="form-control" placeholder="******" type="password">
+							</div>
+							<!-- form-group// -->
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<button type="submit" class="btn btn-danger btn-block">
+											Login</button>
+									</div>
+									<!-- form-group// -->
+								</div>
+								<div class="col-md-6 text-right">
+									<a class="small" href="#">Esqueceu a senha?</a>
+								</div>
+							</div>
+							<!-- .row// -->
+						</form>
+					</article>
+				</div>
+				<!-- card.// -->
+	</section>
+	<!-- /.container -->
+
+</body>
+
+</html>
