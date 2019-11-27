@@ -13,9 +13,9 @@ public class InicioController {
 	@Autowired
 	private ProdutoRepository produtoRepository;
 	
-	@GetMapping("/inicio")
+	@GetMapping("/")
 	public ModelAndView index() {
-		ModelAndView mv =  new ModelAndView("loja/index");	
+		ModelAndView mv =  new ModelAndView("index");	
 		mv.addObject("produto", produtoRepository.findAll());
 		return mv;
 	}

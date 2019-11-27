@@ -7,10 +7,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class NegadoController {
 	
-	@GetMapping("/negado")
-	public ModelAndView acessoNegado() {
+	@GetMapping("/negadoAdministrativo")
+	public ModelAndView acessoNegado() {		
+		ModelAndView mv = new ModelAndView("negadoAdministrativo");		
 		
-		ModelAndView mv = new ModelAndView("administrativo/negado");		
+		return mv;
+	}
+	
+	@GetMapping("/negadoCliente")
+	public ModelAndView negadoCliente() {		
+		ModelAndView mv = new ModelAndView("negadoCliente");		
 		
 		return mv;
 	}

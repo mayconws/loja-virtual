@@ -3,40 +3,26 @@ package com.loja.virtual;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class BasicConfiguration extends WebSecurityConfigurerAdapter {
+@Order(2)
+public class SecurityAdministrativo extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private DataSource dataSource;
-
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	private DataSource dataSource;	
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		/* Atenticação de usuários em memória
-		 		 
-		auth.inMemoryAuthentication().withUser("user")
-		.password(new BCryptPasswordEncoder().encode("123")).roles("USER")
-		.and().withUser("admin")
-		.password(new BCryptPasswordEncoder()
-		.encode("admin")).roles("USER", "ADMIN"); */
-		
-		/* Autenticação de usuários no banco de dados */
-		
+				
 		auth.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery(
 				"select email as username, senha as password, 1 as enable from funcionario where email=?")
@@ -48,12 +34,14 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("//**").hasAnyAuthority("Gerente", "Vendedor").
-		antMatchers("//**").hasAnyAuthority("Gerente").and().formLogin()
-				.loginPage("/login").permitAll().and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").and()
-				.exceptionHandling().accessDeniedPage("/negado");
-
+		http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/administrativo/**")
+		.hasAnyAuthority("Gerente").antMatchers("/removerFuncionario/**").authenticated().and().formLogin()
+		.loginPage("/login").failureUrl("/login").loginProcessingUrl("/admin")
+		.defaultSuccessUrl("/administrativo").usernameParameter("username").passwordParameter("password").and()
+		.logout().logoutRequestMatcher(new AntPathRequestMatcher("/administrativo/logout"))
+		.logoutSuccessUrl("/login").deleteCookies("JSESSIONID").and().exceptionHandling()
+		.accessDeniedPage("/negado").and().csrf().disable();
+		
 	}
 
 }

@@ -36,7 +36,8 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/salvarCliente")
-	public ModelAndView salvar(@Valid Cliente cliente, BindingResult result) {
+public ModelAndView salvar(@Valid Cliente cliente, BindingResult result) {
+		
 		if(result.hasErrors()) {
 			return add(cliente);
 		}
@@ -44,8 +45,8 @@ public class ClienteController {
 		clienteRepository.saveAndFlush(cliente);
 		
 		return add(new Cliente());
-		
-	}	
+	}
+
 	
 	@GetMapping("/editarCliente/{id}")
 	public ModelAndView edit(@PathVariable("id") long id) {
