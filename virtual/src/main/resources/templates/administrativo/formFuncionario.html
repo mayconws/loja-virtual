@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}">
+<head>
+
+	<meta charset="utf-8">
+    <title>Cadastro de Funcionário</title>
+</head>
+<body>		
+
+        <!-- Page Content -->
+        <section class="layout-content" layout:fragment="corpo">
+
+		<h2 align="center">Cadastro de Funcionário</h2>
+		<br>
+
+		<div class="col-md-6 offset-md-3">
+			<div class="form-group" align="justify">
+				<form action="adicionarFuncionario" th:object="${funcionario}"
+					th:action="@{/salvarFuncionario}" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Nome</label> <input type="text"
+							class="form-control" th:field="*{nome}" id=""
+							aria-describedby="emailHelp" placeholder="Digite o nome">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">RG</label> <input
+							type="text" class="form-control" th:field="*{rg}" id=""
+							aria-describedby="emailHelp" placeholder="Digite o RG"> <small
+							id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">CPF</label> <input
+							type="text" class="form-control" th:field="*{cpf}" id=""
+							aria-describedby="emailHelp" placeholder="Digite o CPF">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Telefone</label> <input
+							type="text" class="form-control" th:field="*{telefone}" id="e"
+							aria-describedby="emailHelp" placeholder="Digite o telefone">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Cidade</label> <select
+							th:field="*{cidade}" class="form-control">
+							<option value="0">Selecione uma Cidade</option>
+							<option th:each="cidade: ${cidades}" th:value="${cidade.id}"
+								th:text="${cidade.nome}"></option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Email</label> <input type="email"
+							class="form-control" th:field="*{email}" id=""
+							aria-describedby="emailHelp" placeholder="Digite o email">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Senha</label> <input
+							type="password" class="form-control" th:field="*{senha}" id=""
+							aria-describedby="emailHelp" placeholder="Digite a Senha">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<input type="hidden" id="id" th:field="*{id}" readOnly="readonly"
+						value=""></input>
+					<div class="form-group" align="center">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="submit" class="btn btn-secondary">
+							<a href="adm" class="text-white">Voltar 
+						</button>
+					</div>
+					<a></a>
+				</form>
+			</div>
+		</div>
+
+	</section>        	
+  
+</body>
+</html>

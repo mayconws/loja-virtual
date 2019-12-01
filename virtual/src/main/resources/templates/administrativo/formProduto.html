@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}">
+<head>
+
+	<meta charset="utf-8">
+    <title>Cadastro de Produto</title>
+</head>
+<body>		
+
+        <!-- Page Content -->
+        <section class="layout-content" layout:fragment="corpo">
+
+		<h2 align="center">Cadastro de Produto</h2>
+		<br>
+
+		<div class="col-md-6 offset-md-3">
+			<div class="form-group" align="justify">
+				<form action="adicionarProduto" enctype="multipart/form-data" th:object="${produto}"
+					th:action="@{/salvarProduto}" method="post">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Descrição</label> <input
+							type="text" class="form-control" th:field="*{descricao}" id=""
+							aria-describedby="" placeholder="Digite a descrição"> <small
+							id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Valor da Venda</label> <input
+							type="text" class="form-control" th:field="*{valorVenda}"
+							id="valorVenda" data-mask="#.###,00" data-mask-reverse="true" aria-describedby=""
+							placeholder="Digite o valor da venda"> <small
+							id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Categoria</label> <input
+							type="text" class="form-control" th:field="*{categoria}" id=""
+							aria-describedby="" placeholder="Digite a categoria"> <small
+							id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Marca</label> <input
+							type="text" class="form-control" th:field="*{marca}" id=""
+							aria-describedby="" placeholder="Digite a marca"> <small
+							id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<input type="file" name="file"></input>
+					</div>
+					<input type="hidden" id="id" th:field="*{id}" readOnly="readonly"
+						value=""></input>
+						<div class="form-group" align="center">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="submit" class="btn btn-secondary">
+							<a href="adm" class="text-white">Voltar 
+						</button>
+					</div>
+					<a></a>
+				</form>
+			</div>
+		</div>
+
+	</section>        	
+  
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{cliente/fragments/layoutLoja}">
+
+<head>
+
+<title>Finalizar Compra</title>
+
+</head>
+
+<body>
+
+	<!-- Page Content -->
+	<section class="container" layout:fragment="inicio">
+
+		<div class="row">
+			<form action="/finalizar/confirmar" method="post">
+				<div class="row">
+					<div class="col-12"><br>
+					<h4>
+						<span> Usuario: </span>
+						</h4>
+						<h5> Nome:						
+							<span class="text-danger" th:text="${cliente.nome}"></span>
+						</h5>
+						<h5> Email:
+							<span class="text-danger" th:text="${cliente.email}"></span>
+						</h5>
+						<h5> CPF:
+							<span class="text-danger" th:text="${cliente.cpf}"></span>
+						</h5>
+						<h5> Cidade:
+							<span class="text-danger" th:text="${cliente.cidade}"></span>
+						</h5><br>
+					</div>
+
+					<div class="col-6">
+						<h3>Formas de Pagamento</h3>
+						<select class="form-control" name="formaPagamento">
+							<option value="Cartão de Crédito">Cartao de Credito</option>
+							<option value="Cartão de Débito">Cartao de Débito</option>
+							<option value="Boleto">Boleto</option>
+							<option value="Transferência">Transferencia</option>
+						</select>
+					</div><br>
+
+					<div class="col-12">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col"></th>
+										<th scope="col">Produto</th>
+										<th scope="col">Estoque</th>
+										<th scope="col" class="text-center">Quantidade</th>
+										<th scope="col" class="text-right">Valor Unitario</th>
+										<th scope="col" class="text-right">Valor Total</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="item : ${listaItens}">
+										<td><img src="https://dummyimage.com/50x50/55595c/fff" />
+										</td>
+										<td th:text="${item.produto.descricao}"></td>
+										<td>Em estoque</td>
+										<td><span th:text="${item.quantidade}"></span></td>
+										
+									<td class="text-right" th:text="${item.valorUnitario}"></td>
+									<td class="text-right" th:text="${item.valorTotal}"></td>
+										
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>Sub-Total</td>
+										<td class="text-right"><span
+											th:text="${compra.valorTotal}"></span></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>Frete</td>
+										<td class="text-right">0,00</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><strong>Total</strong></td>
+										<td class="text-right"><strong><span
+												th:text="${compra.valorTotal}"></strong></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+					<div class="col mb-2">
+						<div class="row">
+
+							<div class="col-sm-12 col-md-12 text-right">
+								<a class="btn btn-sm btn-success text-uppercase"
+									th:href="finalizar" role="button">Confirmar</a>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</form>
+			<!-- /.row -->
+	</section>
+	<!-- /.container -->
+
+</body>
+
+</html>

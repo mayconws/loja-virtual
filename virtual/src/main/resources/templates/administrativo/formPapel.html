@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}">
+<head>
+
+	<meta charset="utf-8">
+    <title>Cadastro de Papeis</title>
+</head>
+<body>		
+
+        <!-- Page Content -->
+        <section class="layout-content" layout:fragment="corpo">
+
+		<h2 align="center">Cadastro de Papéis</h2>
+		<br>
+
+		<div class="col-md-4 offset-md-4">
+			<div class="form-group" align="justify">
+				<form action="adicionarPapel" th:object="${papel}"
+					th:action="@{/salvarPapel}" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Nome</label> <input type="text"
+							class="form-control" th:field="*{nome}" id=""
+							aria-describedby="emailHelp" placeholder="Digite o Nome">
+						<small id="emailHelp" class="form-text text-muted"></small>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Departamento</label> <input
+							type="text" class="form-control" th:field="*{departamento}" id=""
+							placeholder="Digite o Departamnto">
+					</div>
+					<input type="hidden" id="id" th:field="*{id}" readOnly="readonly"
+						value=""></input>
+					<div class="form-group" align="center">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="submit" class="btn btn-secondary">
+							<a href="adm" class="text-white">Voltar 
+						</button>
+					</div>
+					<a></a>
+				</form>
+			</div>
+		</div>
+
+	</section>        	
+  
+</body>
+</html>
