@@ -12,8 +12,7 @@
 
 	<!-- Page Content -->
 	<section class="container" layout:fragment="inicio">
-
-		<div class="row">
+		
 			<form action="/finalizar/confirmar" method="post">
 				<div class="row">
 					<div class="col-12"><br>
@@ -38,7 +37,7 @@
 						<h3>Formas de Pagamento</h3>
 						<select class="form-control" name="formaPagamento">
 							<option value="Cartão de Crédito">Cartao de Credito</option>
-							<option value="Cartão de Débito">Cartao de Débito</option>
+							<option value="Cartão de Débito">Cartao de Debito</option>
 							<option value="Boleto">Boleto</option>
 							<option value="Transferência">Transferencia</option>
 						</select>
@@ -107,8 +106,8 @@
 						<div class="row">
 
 							<div class="col-sm-12 col-md-12 text-right">
-								<a class="btn btn-sm btn-success text-uppercase"
-									th:href="finalizar" role="button">Confirmar</a>
+								<button class="btn btn-sm btn-success text-uppercase"
+									role="button">Confirmar</button>
 
 							</div>
 						</div>
