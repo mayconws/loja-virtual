@@ -1,5 +1,6 @@
 package com.loja.virtual.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.loja.virtual.models.Cliente;
@@ -53,6 +55,24 @@ public ModelAndView salvar(@Valid Cliente cliente, BindingResult result) {
 		Optional<Cliente> cliente = clienteRepository.findById(id);
 		return add(cliente.get());
 		
+	}
+	
+	@RequestMapping(value = "/listarCliente")
+	public ModelAndView lista() {
+		ModelAndView mv = new ModelAndView("/administrativo/ListaCliente");
+		List<Cliente> cliente = clienteRepository.findAll();
+		mv.addObject("cliente", cliente);
+		return mv;
+	}
+	
+	@GetMapping("/removerCliente/{id}")
+	public ModelAndView delete(@PathVariable("id") long id) {
+		
+		Optional<Cliente> cliente = clienteRepository.findById(id);
+		Cliente c = cliente.get();
+		clienteRepository.delete(c);	
+		
+		return lista();
 	}	
 
 }

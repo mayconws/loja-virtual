@@ -35,7 +35,7 @@
 								</td>
 								<td th:text="${item.produto.descricao}"></td>
 								<td>Em estoque</td>
-								<td><span th:text="${item.quantidade}"></span> &nbsp;&nbsp;
+								<td class="text-center"><span th:text="${item.quantidade}"></span> &nbsp;&nbsp;
 
 									<a class="btn btn-sm btn-success"
 									th:href="@{/alterarQuantidade/{id}/{acao}(id=${item.produto.id},acao=${1})}"

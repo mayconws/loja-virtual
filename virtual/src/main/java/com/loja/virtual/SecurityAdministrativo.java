@@ -34,13 +34,14 @@ public class SecurityAdministrativo extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/adicionarEstado", "/adicionarCidade")
-		.hasAnyAuthority("Gerente").antMatchers("/removerFuncionario/**").authenticated().and().formLogin()
+		http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/removerEstado/{id}", "/removerCidade/{id}", 
+				"/removerProduto/{id}", "/removerFuncionario/{id}", "/removerPapel/{id}", "/removerPermissaoFuncionario/{id}")
+		.hasAnyAuthority("Gerente").antMatchers("/administrativo/**").authenticated().and().formLogin()
 		.loginPage("/login").failureUrl("/login").loginProcessingUrl("/admin")
 		.defaultSuccessUrl("/administrativo").usernameParameter("username").passwordParameter("password").and()
 		.logout().logoutRequestMatcher(new AntPathRequestMatcher("/administrativo/logout"))
 		.logoutSuccessUrl("/login").deleteCookies("JSESSIONID").and().exceptionHandling()
-		.accessDeniedPage("/negado").and().csrf().disable();
+		.accessDeniedPage("/negadoAdministrativo").and().csrf().disable();
 		
 	}
 

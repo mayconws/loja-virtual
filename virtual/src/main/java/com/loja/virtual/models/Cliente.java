@@ -1,6 +1,7 @@
 package com.loja.virtual.models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,7 @@ public class Cliente implements Serializable {
 	private String senha;
 	@ManyToOne
 	private Cidade cidade;
+	private Date dataCadastro = new Date();
 	
 	public Cliente() {
 		super();
@@ -75,5 +77,13 @@ public class Cliente implements Serializable {
 
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
+	}
+
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 }
